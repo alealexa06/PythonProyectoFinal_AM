@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}{{ object.title }}{% endblock %}
+{% block content %}
+  <h1>{{ object.title }}</h1>
+  <h4>{{ object.subtitle }}</h4>
+  {% if object.image %}
+    <img src="{{ object.image.url }}" alt="{{ object.title }}" style="max-width:300px;">
+  {% endif %}
+  <div>{{ object.content|safe }}</div>
+  <p>Publicado por {{ object.author.username }} el {{ object.date_created|date:"d/m/Y H:i" }}</p>
+  <p><a href="{% url 'pages' %}">Volver a páginas</a></p>
+{% endblock %}

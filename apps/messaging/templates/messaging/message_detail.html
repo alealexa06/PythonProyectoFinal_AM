@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>{{ object.subject }}</h2>
+  <p>De: {{ object.sender.username }}</p>
+  <p>Para: {{ object.recipient.username }}</p>
+  <p>Enviado: {{ object.sent_at|date:"d/m/Y H:i" }}</p>
+  <hr>
+  <div>{{ object.body|linebreaks }}</div>
+  <p><a href="{% url 'inbox' %}">Volver a la bandeja</a></p>
+{% endblock %}

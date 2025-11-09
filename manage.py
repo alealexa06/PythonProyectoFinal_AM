@@ -8,7 +8,7 @@ def main():
         from django.core.management import execute_from_command_line
     except ImportError as exc:
         raise ImportError(
-            "No se pudo importar Django. ¿Está instalado y disponible en tu entorno?"
+            "No se pudo importar Django. Asegúrate de tenerlo instalado y activo en tu entorno."
         ) from exc
     execute_from_command_line(sys.argv)
 

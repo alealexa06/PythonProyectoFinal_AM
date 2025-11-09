@@ -1,5 +1,19 @@
+# Archivos de Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Base de datos local
 db.sqlite3
+
+# Archivos multimedia subidos
 /media/
-.env
+
+# Entorno virtual
+venv/
+.env/
+
+# Archivos temporales de IDE
+.vscode/
+.idea/

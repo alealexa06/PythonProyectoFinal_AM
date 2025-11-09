@@ -2,12 +2,11 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-reemplaza-esto-en-produccion'
-
+SECRET_KEY = 'django-insecure-tu_clave_secreta_aqui'
 DEBUG = True
-
 ALLOWED_HOSTS = []
 
+# Aplicaciones del proyecto
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -16,8 +15,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # Apps del proyecto
-    'app_main',
+    # Apps locales
+    'apps.core',
+    'apps.accounts',
+    'apps.messaging',
+
+    # Librerías externas
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -35,7 +39,7 @@ ROOT_URLCONF = 'PythonProyectoFinal_AM.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'templates'],  # Carpeta global de templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -50,6 +54,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'PythonProyectoFinal_AM.wsgi.application'
 
+# Base de datos
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -57,15 +62,29 @@ DATABASES = {
     }
 }
 
+# Archivos estáticos y media
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Configuración CKEditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 200,
+        'width': '100%',
+    },
+}
+
+# Autenticación
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'
+
 LANGUAGE_CODE = 'es'
-
 TIME_ZONE = 'America/Lima'
-
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
