@@ -16,12 +16,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Apps locales
-    'apps.core',
+    'apps.Core',
     'apps.accounts',
     'apps.messaging',
 
     # Librerías externas
-    'ckeditor',
+    'django_ckeditor_5',
 ]
 
 MIDDLEWARE = [
@@ -68,14 +68,32 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Configuración CKEditor
-CKEDITOR_CONFIGS = {
+# Configuración CKEditor 5 
+DJANGO_CKEDITOR_5_CONFIGS = {
     'default': {
-        'toolbar': 'full',
-        'height': 200,
+        'toolbar': [
+            {'heading': ['heading1', 'heading2', 'heading3', 'heading4']},
+            '|',
+            'bold', 'italic', 'underline', 'link',
+            '|',
+            'bulletedList', 'numberedList', 'blockQuote',
+            '|',
+            'insertTable', 'imageUpload',
+            '|',
+            'undo', 'redo'
+        ],
+        'image': {
+            'toolbar': ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side'],
+        },
+        'table': {
+            'contentToolbar': ['tableColumn', 'tableRow', 'mergeTableCells'],
+        },
+        'height': 400,
         'width': '100%',
-    },
+    }
 }
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 # Autenticación
 LOGIN_REDIRECT_URL = 'home'
