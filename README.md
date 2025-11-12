@@ -1,7 +1,7 @@
 # Proyecto Final Django - Blog Librería
 
-Este proyecto es un blog tipo librería hecho con **Django 5.x**, que incluye:
-- CRUD de publicaciones 
+Este proyecto es un blog tipo librería hecho con Django, que incluye:
+- Publicaciones 
 - Sistema de login / registro / perfil de usuario
 - Mensajería entre usuarios
 - Páginas de “Inicio” y “Acerca de mí”
